@@ -1,0 +1,28 @@
+{
+  "name": "face-api",
+  "version": "1.0.0",
+  "description": "Web app for comparing images of people.",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "mocha ./test/**/*.js"
+  },
+  "author": "Douglas Soares",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "multer": "^1.2.1",
+    "project-oxford": "^1.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb-base": "^11.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-mocha": "^3.0.1",
+    "gulp-nodemon": "^2.2.1",
+    "supertest": "^2.0.1"
+  }
+}
