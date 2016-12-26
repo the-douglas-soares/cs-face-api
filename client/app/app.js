@@ -1,3 +1,3 @@
-const faceApp = angular.module('faceApp', []);
+const faceApp = angular.module('faceApp', ['camera']);
 
 

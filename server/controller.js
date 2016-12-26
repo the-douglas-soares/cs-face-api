@@ -38,6 +38,6 @@ module.exports.validate = (req, res) => {
             if (err.cause) {
                 return res.status(400).json(err);
             }
-            res.status(500).json(err);
+            return res.status(500).json(err);
         });
 };
