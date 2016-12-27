@@ -2,29 +2,33 @@
     .m-5 {
         padding: 5px;
     }
+    
+    .img-box {
+        border: 1px solid lightgrey;
+        margin: 0 auto;
+        height: 300px !important;
+        width: 400px !important;
+    }
 </style>
 <div class="container" style="padding: 15px">
 
 
     <div class="row">
         <div class="col-sm-6 m-5 text-center">
-            <input id=image1 type="file" fileread="ctrl.image1" accept="image/*" ng-hide="true">
-            <img class="img-responsive" style="border: 1px solid lightgrey;margin: 0 auto" width="400" height="300"
-                 ng-src="{{ctrl.image1}}"/>
+            <input id="image1" type="file" fileread="ctrl.image1" accept="image/*" ng-hide="true">
+            <div class="img-responsive img-box" av-image-fit='{{ctrl.image1 || ctrl.dummy}}' av-size='400px,300px'></div>
             <div class="col m-5 text-center">
                 <label for="image1" class="btn btn-primary">Upload</label>
             </div>
         </div>
         <div class="col-sm-6 m-5 text-center">
-            <!--<img class="img-responsive" style="border: 1px solid lightgrey;margin: 0 auto" width="400" height="300"-->
-                 <!--ng-src="{{ctrl.image2}}"/>-->
-            <ng-camera capture-message="Cheeeese!" output-height="160" output-width="213"
-                       viewer-height="320" viewer-width="426"
-                       crop-height="90" crop-width="120" image-format="jpeg" jpeg-quality="100"
-                       action-message="Take picture" snapshot="ctrl.image2"></ng-camera>
-            <div class="col m-5 text-center">
-                <button class="btn btn-primary">Capture</button>
+            <div ng-hide="ctrl.calledCam">
+                <div class="img-responsive img-box" av-image-fit='{{ctrl.image2 || ctrl.dummy}}' av-size='400px,300px'></div>
+                <div class="col m-5 text-center">
+                    <button class="btn btn-primary" ng-click="ctrl.switch()">Open Webcam</button>
+                </div>
             </div>
+            <ng-camera ng-show="ctrl.calledCam" snapshot="ctrl.image2" notifier="switch"></ng-camera>
         </div>
     </div>
     <div class="col text-center">

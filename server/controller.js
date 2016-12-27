@@ -18,6 +18,7 @@ module.exports.index = (req, res) => {
 
 
 module.exports.validate = (req, res) => {
+    console.log(req.file);
     const files = req.files;
     let image1;
     if (!files || !files.length) {
