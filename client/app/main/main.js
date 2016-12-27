@@ -1,27 +1,17 @@
 'use strict';
-class MyImage {
-    constructor(url, data = {}) {
-        this.url = url;
-    }
-}
 class MainCtrl {
-
-
     constructor() {
-        this.image1 = new MyImage("http://placehold.it/400x300");
-        this.image2 = new MyImage("http://placehold.it/400x300");
+        this.image1 = "http://placehold.it/400x300";
+        this.image2 = this.image1;
     }
 
     verify() {
-        console.log(image1)
+        console.log(this.image1)
+        console.log(this.image2)
     }
-
-};
-
-// MainCtrl.$inject = ['$scope'];
-
+}
 faceApp.component("faceMain", {
     controller: MainCtrl,
     controllerAs: "ctrl",
     templateUrl: 'app/main/main.html'
-})
+});
