@@ -1,10 +1,10 @@
 const express = require('express');
-const upload = require('multer')({dest: 'uploads/'});
+// const upload = require('multer')({ dest: 'uploads/' });
 const controller = require('./controller');
 
 const router = new express.Router();
 
 router.get('/', controller.index);
-router.post("/validate", upload.array('files', 2), controller.validate);
+router.post("/validate", controller.validate);
 
 module.exports = router;

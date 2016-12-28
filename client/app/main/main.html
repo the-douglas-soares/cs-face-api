@@ -11,14 +11,14 @@
     }
 </style>
 <div class="container" style="padding: 15px">
-
-
+    <br><br>
+    <h3>Compare a uploaded image with a took picture to determine if they are form the same person.</h3>
     <div class="row">
         <div class="col-sm-6 m-5 text-center">
-            <input id="image1" type="file" fileread="ctrl.image1" accept="image/*" ng-hide="true">
+            <input id="image1" type="file" fileread="ctrl.image1" ng-enabled="ctrl.enable" accept="image/*" ng-hide="true">
             <div class="img-responsive img-box" av-image-fit='{{ctrl.image1 || ctrl.dummy}}' av-size='400px,300px'></div>
             <div class="col m-5 text-center">
-                <label for="image1" class="btn btn-primary">Upload</label>
+                <label for="image1" class="btn btn-primary" ng-class="ctrl.enable btn-enabled : btn-disabled" ng-class="">Upload</label>
             </div>
         </div>
         <div class="col-sm-6 m-5 text-center">
@@ -32,6 +32,6 @@
         </div>
     </div>
     <div class="col text-center">
-        <button class="btn btn-success " ng-click="ctrl.verify()">Verify Images</button>
+        <button class="btn btn-success " ng-enabled="ctrl.enable" ng-click="ctrl.verify()">Verify Images</button>
     </div>
 </div>
