@@ -27,9 +27,11 @@ class MainCtrl {
                 let result = response.data;
                 this.progress.complete();
                 if (response.data.isIdentical) {
-                    return this.toastr.success("Images are from the same person", "Match");
+                    return this.toastr.success(`Images are from the same person
+                                                with confidence of ${response.data.confidence}%`, "Match");
                 }
-                this.toastr.info("Images are from different people", "Oh oh!");
+                this.toastr.info(`Images are from different people
+                                  With confidence of ${response.data.confidence}%`, "Oh oh!");
             })
             .catch(err => {
                 this.enable = true;

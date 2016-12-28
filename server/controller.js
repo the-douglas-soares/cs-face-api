@@ -15,6 +15,9 @@ module.exports.index = (req, res) => {
     return res.render('index');
 };
 
+module.exports.favico = (req, res) => {
+    return res.send(204);
+};
 
 module.exports.validate = (req, res) => {
     const files = req.body;
@@ -32,7 +35,11 @@ module.exports.validate = (req, res) => {
             if (!result.length) return Promise.reject(makeErr(2));
             return face.verify([image1, result[0].faceId]);
         })
-        .then(result => res.json(result))
+        .then(response => {
+            let result = response;
+            result.confidence = (result.confidence * 100).toFixed(2);
+            res.json(result)
+        })
         .catch(err => {
             console.log(err);
             if (err.cause) {
