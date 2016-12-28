@@ -1,4 +1,4 @@
-const faceApp = angular.module('faceApp', ['ngAnimate', 'toastr', 'ngProgress']);
+const faceApp = angular.module('faceApp', ['ngAnimate', 'toastr', 'ngProgress', 'ngFileUpload']);
 faceApp.config(toastrConfig => {
     angular.extend(toastrConfig, {
         maxOpened: 0,

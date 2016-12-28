@@ -18,12 +18,13 @@ module.exports.index = (req, res) => {
 
 
 module.exports.validate = (req, res) => {
-    console.log(req.file);
+    console.log(req.files);
     const files = req.files;
     let image1;
     if (!files || !files.length) {
         res.status(400).end();
     }
+    console.log(files[0].path)
     face.detect(custom(files[0].path))
         .then(result => {
             if (!result.length) return Promise.reject(makeErr(1));
