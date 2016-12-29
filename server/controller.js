@@ -37,6 +37,9 @@ module.exports.validate = (req, res) => {
         })
         .then(response => {
             let result = response;
+            if (!result.isIdentical && result.confidence < 0.5) {
+                result.confidence = 1 - result.confidence;
+            }
             result.confidence = (result.confidence * 100).toFixed(2);
             res.json(result)
         })
