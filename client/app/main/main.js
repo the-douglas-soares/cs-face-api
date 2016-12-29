@@ -39,7 +39,7 @@ class MainCtrl {
                 if (err.status === 400) {
                     return this.toastr.error(err.data.cause, "Image " + err.data.image);
                 }
-                this.toastr.warn("Try again later", "Service Unavailable");
+                this.toastr.warning("Try again later", "Service Unavailable");
             });
     }
 }

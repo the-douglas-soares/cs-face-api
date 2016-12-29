@@ -1,6 +1,6 @@
 const oxford = require("project-oxford");
 
-const oxfordCli = new oxford.Client("ef188a9ba3334efe87e3361a2d2cd65b");
+const oxfordCli = new oxford.Client(process.env.oxford_key);
 const face = oxfordCli.face;
 
 const custom = data => {
