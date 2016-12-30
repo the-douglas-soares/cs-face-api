@@ -6,7 +6,7 @@ const mocha = require("gulp-mocha");
 gulp.task("lint", () => {
     gulp.src(["server/**/*.js"])
         .pipe(lint({
-            fix:true,
+            fix: true,
             useEslintrc: true
         }))
         .pipe(lint.format())
@@ -23,4 +23,4 @@ gulp.task('default', () => {
         watch: "**/*.js",
         tasks: ["lint"]
     });
-})
+});

@@ -4,19 +4,19 @@ const oxfordCli = new oxford.Client(process.env.oxford_key);
 const face = oxfordCli.face;
 
 const custom = data => {
-    return { returnFaceId: true, data: oxford.makeBuffer(data) }
-}
+    return {returnFaceId: true, data: oxford.makeBuffer(data)}
+};
 
 const makeErr = image => {
-    return { image: image, cause: "The image has no face" };
-}
+    return {image: image, cause: "The image has no face"};
+};
 
 module.exports.index = (req, res) => {
     return res.render('index');
 };
 
 module.exports.favico = (req, res) => {
-    return res.send(204);
+    return res.status(204).end();
 };
 
 module.exports.validate = (req, res) => {
